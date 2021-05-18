@@ -1,0 +1,413 @@
+body {
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	justify-content: center;
+	background: #0f0f0f;
+    font-family: 'Merriweather', serif;
+    overflow-y: scroll;
+}
+
+.contenedor-header {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	height: 50px;
+  	background: #34495e;
+  	padding: 0 20px;
+  	color: #ffffff;
+  	box-shadow: 0 1px #bdc3c7;
+}
+
+.logo {
+  line-height: 30px;
+  float: left;
+  text-transform: uppercase;
+
+}
+
+.menu {
+  float: right;
+  line-height: 40px;
+}
+
+.menu a {
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 10px;
+}
+
+.show-menu-btn, .hide-menu-btn {
+  transition: 0.4s;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+.show-menu-btn {
+  float: right;
+}
+
+.show-menu-btn i {
+  line-height: 100px;
+}
+
+.menu a:hover,
+.show-menu-btn:hover,
+.hide-menu-btn:hover {
+  color: #e84118;
+}
+
+#chk {
+  position: absolute;
+  visibility: hidden;
+  z-index: -1111;
+}
+
+/* Vista movil navbar */
+@media screen and (max-width:800px){
+  .show-menu-btn, .hide-menu-btn {
+    display: block;
+  }
+  .menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#000000,#434343);
+    right: -100%;
+    top: 0;
+    text-align: center;
+    padding: 80px 0;
+    line-height: normal;
+    transition: 0.7s;
+    z-index: 100000;
+  }
+  .menu a {
+    display: block;
+    padding: 20px;
+    color: #0f9b0f;
+  }
+  .hide-menu-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+  #chk:checked ~ .menu {
+    right: 0;
+  }
+}
+
+
+/*IMAGEN CENTRO*/
+
+.contenedor-imagen {
+	width: 100%;
+	height: 100vh;
+}
+
+.imagen {
+	width: 600px;
+	height: 400px;
+	background: url(../img/hackerbg.png) no-repeat;
+	background-size: cover;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.imagen::before{
+	content: "";
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	background: url(../img/hackerbg.png) no-repeat;
+	background-size: cover;
+	margin: 0 auto;
+	filter: sepia(100%);
+	opacity: 0;
+	opacity: .7;
+	animation: glitch 1.5s infinite linear;
+}
+
+.imagen::after{
+	content: "Bienvenido a la casa de Jairo Py";
+	width: 100%;
+	position: absolute;
+	color: #ffff;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,100%);
+	text-transform: uppercase;
+	font-size: 25px;
+	text-align: center;
+	color: #ff1300;
+}
+
+/*Animacion de efecto glitch */
+
+@keyframes glitch {
+	0% {
+		top: 0;
+		background-position: 12px 0;
+	}
+
+	20% {
+		top: 80px;
+		background-position: -10px -80px;
+	}
+
+	40% {
+		top: 160px;
+		background-position: 6px -160px;		
+	}
+
+	60% {
+		top: 240px;
+		background-position: -6px -240px;
+	}
+
+	80% {
+		top: 320px;
+		background-position: 10px -320px;
+	}
+
+	100% {
+		top: 400px;
+		background-position: -12px -400px;
+	}
+}
+
+
+/*Vista movil imagen inicio */
+@media screen and (max-width:540px){
+	.imagen {
+		width: 400px;
+		height: 200px;
+	}
+
+	.imagen::before {
+		width: 400px;
+		height: 200px;
+	}
+
+	.imagen::after {
+		font-size: 15px;
+	}
+}
+
+.contenedor-about {
+	position: relative;
+	background: url(../img/mrb.jpg) no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	padding-top: 100px;
+}
+
+.contenedor-about .box-about {
+	width: 450px;
+	background: rgb(0, 0, 0, 0.4);
+	padding: 40px 40px;
+	text-align: center;
+	margin: auto;
+	color: #ff0000;
+	font-family: 'Century Gothic', sans-serif;
+}
+
+
+.root p {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s steps(30, end) infinite, blink-caret .5s step-end infinite;
+    letter-spacing: .15em;
+}
+
+/** EFECTO TYPING **/
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* efecto del cursor*/
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+
+.box-ima {
+	width: 120px;
+	height: 150px;
+}
+
+.box-about h1 {
+	font-size: 40px;
+	letter-spacing: 4px;
+	font-weight: 100;
+}
+
+.box-about h5 {
+	font-size: 20px;
+	letter-spacing: 3px;
+	font-weight: 100;
+}
+
+.box-about p {
+	text-align: justify;
+}
+
+.root {
+	position: absolute;
+	color: #d8d8d8;
+	padding: 0;
+	font-size: 13px;
+}
+
+@media screen and (max-width:500px){
+.contenedor-about .box-about {
+		width: 200px;
+		height: 100%;
+	}
+
+.contenedor-about .box-about h1 {
+		font-size: 20px;
+		letter-spacing: 4px;
+		font-weight: 100;
+	}
+
+	.contenedor-about .root p {
+		font-size: 9px;
+	}
+}
+
+.contenedor-tools {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: linear-gradient(#0f0f0f, #0f0f0f 50%, #1d3d44 50%, #1d3d44 100%);
+
+}
+
+.contenedor-box-tools {
+	width: 1100px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+}
+
+.contenedor-box-tools .box-tools {
+	position: relative;
+	width: 320px;
+	background: #34495e;
+	padding: 100px 40px 60px;
+	box-shadow: 0 15px 45px rgba(0,0,0,.1);
+	margin: 0 auto;
+}
+
+.contenedor-box-tools .box-tools::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, black, transparent);
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform 0.5s;
+}
+
+.contenedor-box-tools .box-tools:hover:before {
+	transform: scaleY(1);
+	transform-origin: bottom;
+	transition: transform 0.5s;
+}
+
+.contenedor-box-tools .box-tools h2 {
+	position: absolute;
+	left: 40px;
+	top: 60px;
+	font-size: 2.5em;
+	font-weight: 800;
+	z-index: 1;
+	opacity: 0.1;
+	transition: 0.5s;
+}
+
+.contenedor-box-tools .box-tools:hover h2 {
+	opacity: 1;
+	color: #fff;
+	transform: translateY(-40px);
+}
+
+.contenedor-box-tools .box-tools h3 {
+	position: relative;
+	font-size: 1.5em;
+	z-index: 2;
+	color: #bdc3c7;
+	transition: 0.5s;
+
+}
+
+.contenedor-box-tools .box-tools p {
+	position: relative;
+	z-index: 2;
+	color: #bdc3c7;
+	transition: 0.5s;
+}
+
+.contenedor-box-tools .box-tools:hover h3,
+.contenedor-box-tools .box-tools:hover p 
+{
+	color: #fff;
+}
+
+.contenedor-box-tools .box-tools:hover span a,
+.contenedor-box-tools .box-tools:hover .acceder a
+ {
+	color: #37ef09;
+}
+
+
+.contenedor-box-tools .box-tools .acceder {
+	line-height: 40px;
+	text-align: center;
+	position: relative;
+}
+
+.contenedor-box-tools .box-tools span a {
+	text-decoration: none;
+	color: #f5ef3c;
+}
+
+.contenedor-box-tools .box-tools span a:hover {
+	color: red;
+	font-size: 2rem;
+}
+
+.contenedor-box-tools .box-tools .acceder a:hover {
+	color: red;
+}
+
+
+.contenedor-box-tools .box-tools .acceder a {
+	padding: 10px 15px;
+	background: #fff;
+	text-decoration: none;
+	color: #040401;
+	border: #e4dbd4 2px solid;
+}
+
+  /***** ********/
+img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+
+    display: none;
+
+}
